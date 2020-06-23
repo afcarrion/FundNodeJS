@@ -1,4 +1,4 @@
-function hola(nombre, miCallback) {
+function hola(nombre) {
   return new Promise(function (resolve, reject) {
     setTimeout(function () {
       console.log("Hola, " + nombre);

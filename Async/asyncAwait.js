@@ -1,4 +1,4 @@
-function hola(nombre, miCallback) {
+async function hola(nombre) {
   return new Promise(function (resolve, reject) {
     setTimeout(function () {
       console.log("Hola, " + nombre);
@@ -7,7 +7,7 @@ function hola(nombre, miCallback) {
   });
 }
 
-function hablar(nombre) {
+async function hablar(nombre) {
   return new Promise((resolve, reject) => {
     setTimeout(function () {
       console.log("Bla bla bla");
@@ -16,7 +16,7 @@ function hablar(nombre) {
   });
 }
 
-function adios(nombre1) {
+async function adios(nombre1) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       console.log("Adios, " + nombre1);
@@ -24,3 +24,19 @@ function adios(nombre1) {
     }, 1000);
   });
 }
+
+// -----
+
+async function main() {
+  let nombre = await hola("Felipe");
+  await hablar();
+  await hablar();
+  await hablar();
+  await hablar();
+  await hablar();
+  await adios(nombre);
+  console.log("Terminamos el proceso");
+}
+
+console.log("Empezamos el proceso");
+main();
